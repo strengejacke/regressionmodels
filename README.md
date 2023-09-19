@@ -66,8 +66,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>glmer(family=binomial)</code><br />
-- <code>glmmTMB(family=binomial)</code></td>
+<td style="text-align: left;">- <code>glmer(*)</code><br />
+- <code>glmmTMB(*)</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -83,8 +83,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>glmer(cbind(successes, failures), family=binomial)</code><br />
-- <code>glmmTMB(cbind(successes, failures), family=binomial)</code></td>
+<td style="text-align: left;">- <code>glmer(*)</code><br />
+- <code>glmmTMB(*)</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -100,8 +100,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>glmer(family=poisson)</code><br />
-- <code>glmmTMB(family=poisson)</code></td>
+<td style="text-align: left;">- <code>glmer(*)</code><br />
+- <code>glmmTMB(*)</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -273,8 +273,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>glmer()</code><br />
-- <code>glmmTMB()</code></td>
+<td style="text-align: left;">- <code>glmer(*)</code><br />
+- <code>glmmTMB(*)</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -292,7 +292,7 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">- <code>cpglmm()</code><br />
-- <code>glmmTMB(family=tweedie)</code></td>
+- <code>glmmTMB(*)</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -336,7 +336,7 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>glmmTMB(family=Gaussian("log"))</code><br />
+<td style="text-align: left;">- <code>glmmTMB(*)</code><br />
 - <code>nlmer()</code><br />
 - <code>nlme()</code></td>
 <td style="text-align: left;"></td>
@@ -369,18 +369,23 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 </tbody>
 </table>
 
-*Note that ratios or proportions from **count data**, like
-`cbind(successes, failures)`, are modelled as logistic regression with
-`glm(cbind(successes, failures), family=binomial())`, while ratios from
-**continuous data** (where the response ranges from 0 to 1) are modelled
-using beta-regression.*
+  - `*` indicates that for the mixed models functions the same
+    response-type and family should be used as for their `glm`
+    counterpart.
 
-*Usually, zero-inflated models are used when 0 or 1 come from a separate
-process or category. However, when the 0/1 values are most consistent
-with censoring rather than with a separate category/process, the ordered
-beta regression is probably a better choice (i.e., 0 mean “below
-detection”, not “something qualitatively different happened”) (Source:
-<https://twitter.com/bolkerb/status/1577755600808775680>)*
+  - *Note that ratios or proportions from **count data**, like
+    `cbind(successes, failures)`, are modelled as logistic regression
+    with `glm(cbind(successes, failures), family=binomial())`, while
+    ratios from **continuous data** (where the response ranges from 0 to
+    1) are modelled using beta-regression.*
+
+  - *Usually, zero-inflated models are used when 0 or 1 come from a
+    separate process or category. However, when the 0/1 values are most
+    consistent with censoring rather than with a separate
+    category/process, the ordered beta regression is probably a better
+    choice (i.e., 0 mean “below detection”, not “something qualitatively
+    different happened”) (Source:
+    <https://twitter.com/bolkerb/status/1577755600808775680>)*
 
 ## Included packages for non-mixed models:
 
