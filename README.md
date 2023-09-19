@@ -389,19 +389,19 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
     response-type and family should be used as for their `glm`
     counterpart.
 
-  - *Note that ratios or proportions from **count data**, like
+  - Note that ratios or proportions from **count data**, like
     `cbind(successes, failures)`, are modelled as logistic regression
     with `glm(cbind(successes, failures), family=binomial())`, while
     ratios from **continuous data** (where the response ranges from 0 to
-    1) are modelled using beta-regression.*
+    1) are modelled using beta-regression.
 
-  - *Usually, zero-inflated models are used when 0 or 1 come from a
+  - Usually, zero-inflated models are used when 0 or 1 come from a
     separate process or category. However, when the 0/1 values are most
     consistent with censoring rather than with a separate
     category/process, the ordered beta regression is probably a better
     choice (i.e., 0 mean “below detection”, not “something qualitatively
     different happened”) (Source:
-    <https://twitter.com/bolkerb/status/1577755600808775680>)*
+    <https://twitter.com/bolkerb/status/1577755600808775680>)
 
 ## Included packages for non-mixed models:
 
