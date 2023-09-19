@@ -32,8 +32,8 @@ tab <- docx_extract_tbl(docx)
 
 for (i in seq_len(nrow(tab))) {
   x <- tab$R.function...R.function.for.mixed.models[i]
-  if (grepl(".", x, fixed = TRUE)) {
-    x <- unlist(strsplit(x, ".", fixed = TRUE))
+  if (grepl(";", x, fixed = TRUE)) {
+    x <- unlist(strsplit(x, ";", fixed = TRUE))
     x <- paste("-", trimws(x))
     x <- paste0(x, collapse = "\\\n")
     tab$R.function...R.function.for.mixed.models[i] <- x
