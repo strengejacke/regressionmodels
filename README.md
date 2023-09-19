@@ -392,8 +392,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
   - Note that ratios or proportions from **count data**, like
     `cbind(successes, failures)`, are modelled as logistic regression
     with `glm(cbind(successes, failures), family=binomial())`, while
-    ratios from **continuous data** (where the response ranges from 0 to
-    1) are modelled using beta-regression.
+    ratios from **continuous data** (where the response ranges from zero
+    to one) are modelled using beta-regression.
 
   - Usually, zero-inflated models are used when 0 or 1 come from a
     separate process or category. However, when the 0/1 values are most
