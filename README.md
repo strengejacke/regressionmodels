@@ -17,12 +17,12 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 
 ## Modelling Packages
 
-<table>
+<table style="width:100%;">
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 20%" />
 <col style="width: 12%" />
-<col style="width: 26%" />
+<col style="width: 27%" />
 <col style="width: 10%" />
 <col style="width: 14%" />
 </colgroup>
@@ -49,8 +49,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><code>lmer()</code><br />
-<code>glmmTMB()</code></td>
+<td style="text-align: left;"><em><code>lmer()</code><br />
+</em> <code>glmmTMB()</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -66,8 +66,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmer(family=binomial)</code><br />
-<code>glmmTMB(family=binomial)</code></td>
+<td style="text-align: left;"><em><code>glmer(family=binomial)</code><br />
+</em> <code>glmmTMB(family=binomial)</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -83,8 +83,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmer(cbind(successes, failures), family=binomial)</code><br />
-<code>glmmTMB(cbind(successes, failures), family=binomial)</code></td>
+<td style="text-align: left;"><em><code>glmer(cbind(successes, failures), family=binomial)</code><br />
+</em> <code>glmmTMB(cbind(successes, failures), family=binomial)</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -100,8 +100,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmer(family=poisson)</code><br />
-<code>glmmTMB(family=poisson)</code></td>
+<td style="text-align: left;"><em><code>glmer(family=poisson)</code><br />
+</em> <code>glmmTMB(family=poisson)</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -109,7 +109,7 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;">Count data, with excess zeros or overdispersion</td>
 <td style="text-align: left;">Number of usage, counts of events (with higher variance than mean of response)</td>
 <td style="text-align: left;">negative binomial</td>
-<td style="text-align: left;"><code>glm\ nb()</code></td>
+<td style="text-align: left;">*<code>glm\ *nb()</code></td>
 <td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/negative-binomial-regression/">UCLA</a></td>
 <td style="text-align: left;"><code>brm(family = negbinomial())</code></td>
 </tr>
@@ -117,8 +117,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmer\ nb()</code><br />
-<code>glmmTMB(family=nbinom)</code></td>
+<td style="text-align: left;"><em><code>glmer\ *nb()</code><br />
+</em> <code>glmmTMB(family=nbinom)</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -206,9 +206,9 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;">Proportion / Ratio (including zero and one)</td>
 <td style="text-align: left;">Percentages, proportions of <em>continuous</em> data</td>
 <td style="text-align: left;">Beta-Binomial, zero-inflated Beta, ordered Beta <em>(see note below)</em></td>
-<td style="text-align: left;"><code>BBreg()</code><br />
-<code>betabin()</code><br />
-<code>vglm(family=betabinomial)</code>, <code>ordbetareg()</code></td>
+<td style="text-align: left;"><em><code>BBreg()</code><br />
+</em> <code>betabin()</code><br />
+* <code>vglm(family=betabinomial)</code>, <code>ordbetareg()</code></td>
 <td style="text-align: left;"><a href="https://www.rdatagen.net/post/binary-beta-beta-binomial/">ouR data generation</a></td>
 <td style="text-align: left;"><code>brm(family = zero_one_inflated_beta())</code></td>
 </tr>
@@ -216,10 +216,10 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmmTMB(ziformula, family=beta_family)</code><br />
-<code>glmmTMB(ziformula, family= betabinomial)</code><br />
-<code>glmmTMB(ziformula, family= ordbeta)</code><br />
-<code>ordbetareg()</code></td>
+<td style="text-align: left;"><em><code>glmmTMB(ziformula, family=beta_family)</code><br />
+</em> <code>glmmTMB(ziformula, family= betabinomial)</code><br />
+* <code>glmmTMB(ziformula, family= ordbeta)</code><br />
+* <code>ordbetareg()</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -227,9 +227,9 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;">Ordinal</td>
 <td style="text-align: left;">Likert scale, worse/ok/better</td>
 <td style="text-align: left;">ordinal, proportional odds, cumulative</td>
-<td style="text-align: left;"><code>polr()</code><br />
-<code>clm()</code><br />
-<code>bracl()</code></td>
+<td style="text-align: left;"><em><code>polr()</code><br />
+</em> <code>clm()</code><br />
+* <code>bracl()</code></td>
 <td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/ordinal-logistic-regression/">UCLA</a></td>
 <td style="text-align: left;"><code>brm(family = cumulative())</code></td>
 </tr>
@@ -237,9 +237,9 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><code>clmm()</code><br />
-<code>mixor()</code><br />
-<code>MCMCglmm(family = "ordinal")</code></td>
+<td style="text-align: left;"><em><code>clmm()</code><br />
+</em> <code>mixor()</code><br />
+* <code>MCMCglmm(family = "ordinal")</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -247,8 +247,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;">Multinomial</td>
 <td style="text-align: left;">No natural order of categories, like red/green/blue</td>
 <td style="text-align: left;">multinomial</td>
-<td style="text-align: left;"><code>multinom()</code><br />
-<code>brmultinom()</code></td>
+<td style="text-align: left;"><em><code>multinom()</code><br />
+</em> <code>brmultinom()</code></td>
 <td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/multinomial-logistic-regression/">UCLA</a></td>
 <td style="text-align: left;"><code>brm(family = multinomial())</code></td>
 </tr>
@@ -272,8 +272,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmer()</code><br />
-<code>glmmTMB()</code></td>
+<td style="text-align: left;"><em><code>glmer()</code><br />
+</em> <code>glmmTMB()</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -281,8 +281,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;">(Semi-)Continuous, (right) skewed, probably with spike at zero (zero-inlfated)</td>
 <td style="text-align: left;">Financial data, probably exponential dispersion of variance</td>
 <td style="text-align: left;">Tweedie</td>
-<td style="text-align: left;"><code>glm(family=tweedie)</code><br />
-<code>cpglm()</code></td>
+<td style="text-align: left;"><em><code>glm(family=tweedie)</code><br />
+</em> <code>cpglm()</code></td>
 <td style="text-align: left;"><a href="https://blog.revolutionanalytics.com/2014/10/a-note-on-tweedie.html">Revolutions</a></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -290,8 +290,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><code>cpglmm()</code><br />
-<code>glmmTMB(family=tweedie)</code></td>
+<td style="text-align: left;"><em><code>cpglmm()</code><br />
+</em> <code>glmmTMB(family=tweedie)</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -299,8 +299,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;">(Semi-)Continuous, (right) skewed, probably with spike at zero (zero-inlfated)</td>
 <td style="text-align: left;">Normal distribution, but negative values are censored and stacked on zero</td>
 <td style="text-align: left;">Tobit</td>
-<td style="text-align: left;"><code>tobit()</code><br />
-<code>censReg()</code></td>
+<td style="text-align: left;"><em><code>tobit()</code><br />
+</em> <code>censReg()</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><code>brm(y &amp;#124; cens(), family = gaussian())</code></td>
 </tr>
@@ -316,9 +316,9 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;">Continuous, but truncated or outliers</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">truncated</td>
-<td style="text-align: left;"><code>censReg()</code><br />
-<code>tobit()</code><br />
-<code>vglm(family=tobit)</code></td>
+<td style="text-align: left;"><em><code>censReg()</code><br />
+</em> <code>tobit()</code><br />
+* <code>vglm(family=tobit)</code></td>
 <td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/tobit-models/">UCLA-1</a>, <a href="https://stats.idre.ucla.edu/r/dae/truncated-regression/">UCLA-2</a></td>
 <td style="text-align: left;"><code>brm(y &amp;#124; trunc(), family = gaussian())</code></td>
 </tr>
@@ -326,8 +326,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;">Continuous, but exponential growth</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">log-transformed, non-linear</td>
-<td style="text-align: left;"><code>glm(family=Gaussian("log")</code><br />
-<code>nls()</code></td>
+<td style="text-align: left;"><em><code>glm(family=Gaussian("log")</code><br />
+</em> <code>nls()</code></td>
 <td style="text-align: left;"><a href="https://www.statforbiology.com/nonlinearregression/usefulequations">Some useful equations</a>, <a href="https://stats.stackexchange.com/a/61806/54740">linear vs. non-linear regression</a></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -335,9 +335,9 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmmTMB(family=Gaussian("log"))</code><br />
-<code>nlmer()</code><br />
-<code>nlme()</code></td>
+<td style="text-align: left;"><em><code>glmmTMB(family=Gaussian("log"))</code><br />
+</em> <code>nlmer()</code><br />
+* <code>nlme()</code></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
