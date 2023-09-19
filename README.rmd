@@ -1,0 +1,89 @@
+---
+output: 
+  github_document:
+    toc: false
+    fig_width: 7
+    fig_height: 5
+vignette: >
+  %\VignetteIndexEntry{README}
+  \usepackage[utf8]{inputenc}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(knitr)
+library(docxtractr)
+options(digits = 2)
+
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  fig.path = "man/figures/",
+  fig.width = 7,
+  fig.height = 5,
+  comment = "#>",
+  dev = "png"
+)
+knitr::opts_chunk$set(echo = TRUE)
+
+docx <- read_docx("Regressionspakete.docx")
+tab <- docx_extract_tbl(docx)
+colnames(tab) <- c("Nature of Response", "Example", "Type of Regression", "R package or function", "Example Webpage", "Bayesian with [`brms`](https://paul-buerkner.github.io/brms/reference/brmsfamily.html)")
+```
+
+# Overview of R Modelling Packages
+
+This is an overview of R packages and functions for fitting different types of regression models. For each row, the upper cells in the last column (_packages and functions_) refer to "simple" models, while the lower cells refer to their mixed models counterpart (if available and known).
+
+This overview raises no claims towards completeness of available modelling packages. Rather, it shows commonly or more often used packages, but there a plenty of other packages as well (that might even perform better in doing those mentioned tasks - if you're aware of such packages or think that an important package or function is missing, please [file an issue](https://github.com/strengejacke/regressionmodels/issues)).
+
+## Modelling Packages
+
+```{r echo=FALSE}
+kable(tab)
+```
+
+_Note that ratios or proportions from **count data**, like `cbind(successes, failures)`, are modelled as logistic regression with `glm(cbind(successes, failures), family=binomial())`, while ratios from **continuous data** (where the response ranges from 0 to 1) are modelled using beta-regression._
+
+*Usually, zero-inflated models are used when 0 or 1 come from a separate process or category. However, when the 0/1 values are most consistent with censoring rather than with a separate category/process, the ordered beta regression is probably a better choice (i.e., 0 mean "below detection", not "something qualitatively different happened") (Source: https://twitter.com/bolkerb/status/1577755600808775680)*
+
+## Included packages for non-mixed models:
+
+  - Base R: `lm()`, `glm()`
+  - [AER](https://CRAN.R-project.org/package=AER): `tobit()`
+  - [aod](https://CRAN.R-project.org/package=aod): `betabin()`
+  - [betareg](https://CRAN.R-project.org/package=betareg): `betareg()`
+  - [brglm2](https://CRAN.R-project.org/package=brglm2): `bracl()`, `brmultinom()`
+  - [censReg](https://CRAN.R-project.org/package=censReg): `censReg()`
+  - [cplm](https://CRAN.R-project.org/package=cplm): `cpglm()`
+  - [coxph](https://CRAN.R-project.org/package=survival): `coxph()`
+  - [DirichletReg](https://CRAN.R-project.org/package=DirichletReg): `DirichReg()`
+  - [HRQoL](https://CRAN.R-project.org/package=HRQoL): `BBreg()`
+  - [MASS](https://CRAN.R-project.org/package=MASS): `glm.nb()`, `polr()`
+  - [nnet](https://CRAN.R-project.org/package=nnet): `multinom()`
+  - [ordbetareg](https://cran.r-project.org/package=ordbetareg): `ordbetareg()`
+  - [ordinal](https://CRAN.R-project.org/package=ordinal): `clm()`, `clm2()`
+  - [pscl](https://CRAN.R-project.org/package=pscl): `zeroinfl()`, `hurdle()`
+  - [statmod](https://CRAN.R-project.org/package=statmod): `tweedie()`
+  - [VGAM](https://CRAN.R-project.org/package=VGAM): `vglm()`
+
+## Included packages for mixed models:
+
+  - [cplm](https://CRAN.R-project.org/package=cplm): `cpglmm()`
+  - [coxme](https://CRAN.R-project.org/package=coxme): `coxme()`
+  - [glmmTMB](https://CRAN.R-project.org/package=glmmTMB): `glmmTMB()`
+  - [lme4](https://CRAN.R-project.org/package=lme4): `lmer()`, `glmer()`, `glmer.nb()`
+  - [MCMCglmm](https://CRAN.R-project.org/package=MCMCglmm): `MCMCglmm()`
+  - [mixor](https://CRAN.R-project.org/package=mixor): `mixor()`
+  - [ordbetareg](https://cran.r-project.org/package=ordbetareg): `ordbetareg()`
+  - [ordinal](https://CRAN.R-project.org/package=ordinal): `clmm()`, `clmm2()`
+  - [smicd](https://cran.r-project.org/package=smicd): `semLme()`
+  
+## Included packages for Bayesian models (mixed an non-mixed):
+
+  - [brms](https://cran.r-project.org/package=brms): `brm()`
+
+## Handout
+
+There is a [handout](pdf/regression_pkgs_handout.pdf) in PDF-format.
