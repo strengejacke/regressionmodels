@@ -87,6 +87,7 @@ kable(tab)
   - [coxme](https://CRAN.R-project.org/package=coxme): `coxme()`
   - [glmmTMB](https://CRAN.R-project.org/package=glmmTMB): `glmmTMB()`
   - [lme4](https://CRAN.R-project.org/package=lme4): `lmer()`, `glmer()`, `glmer.nb()`
+  - [MASS](https://CRAN.R-project.org/package=MASS): `glmmPQL()`
   - [MCMCglmm](https://CRAN.R-project.org/package=MCMCglmm): `MCMCglmm()`
   - [mixor](https://CRAN.R-project.org/package=mixor): `mixor()`
   - [ordbetareg](https://cran.r-project.org/package=ordbetareg): `ordbetareg()`
