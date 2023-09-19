@@ -17,373 +17,48 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 
 ## Modelling Packages
 
-<table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 20%" />
-<col style="width: 12%" />
-<col style="width: 27%" />
-<col style="width: 10%" />
-<col style="width: 14%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Nature of Response</th>
-<th style="text-align: left;">Example</th>
-<th style="text-align: left;">Type of Regression</th>
-<th style="text-align: left;">R package or function</th>
-<th style="text-align: left;">Example Webpage</th>
-<th style="text-align: left;">Bayesian with <a href="https://paul-buerkner.github.io/brms/reference/brmsfamily.html"><code>brms</code></a></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Continuous</td>
-<td style="text-align: left;">Quality of Life, linear scales</td>
-<td style="text-align: left;">linear</td>
-<td style="text-align: left;"><code>lm()</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>brm(family = gaussian())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>lmer()</code><br />
-- <code>glmmTMB()</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Binary</td>
-<td style="text-align: left;">Success yes/no</td>
-<td style="text-align: left;">binary logistic</td>
-<td style="text-align: left;"><code>glm(family=binomial)</code></td>
-<td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/logit-regression/">UCLA</a></td>
-<td style="text-align: left;"><code>brm(family = binomial())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>glmer(*)</code><br />
-- <code>glmmTMB(*)</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Binary, weighted</td>
-<td style="text-align: left;">Success yes/no, with weights</td>
-<td style="text-align: left;">quasi-binary logistic</td>
-<td style="text-align: left;"><code>glm(family=quasibinomial)</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmmPQL(family="quasibinomial")</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Trials (or proportions of <em>counts</em>)</td>
-<td style="text-align: left;">20 successes out of 30 trials</td>
-<td style="text-align: left;">logistic</td>
-<td style="text-align: left;"><code>glm(cbind(successes, failures), family=binomial)</code></td>
-<td style="text-align: left;"><a href="http://had.co.nz/notes/modelling/logistic-regression.html">Hadley’s notes</a></td>
-<td style="text-align: left;"><code>brm(successes &amp;#124; trials(total), family = binomial())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>glmer(*)</code><br />
-- <code>glmmTMB(*)</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Count data</td>
-<td style="text-align: left;">Number of usage, counts of events</td>
-<td style="text-align: left;">Poisson</td>
-<td style="text-align: left;"><code>glm(family=poisson)</code></td>
-<td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/poisson-regression/">UCLA</a></td>
-<td style="text-align: left;"><code>brm(family = poisson())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>glmer(*)</code><br />
-- <code>glmmTMB(*)</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Count data, with excess zeros or overdispersion</td>
-<td style="text-align: left;">Number of usage, counts of events (with higher variance than mean of response)</td>
-<td style="text-align: left;">negative binomial</td>
-<td style="text-align: left;">- <code>glm\ - nb()</code></td>
-<td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/negative-binomial-regression/">UCLA</a></td>
-<td style="text-align: left;"><code>brm(family = negbinomial())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>glmer\ - nb()</code><br />
-- <code>glmmTMB(family=nbinom)</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Count data with very many zeros (inflation)</td>
-<td style="text-align: left;">see count data, but response is modelled as mixture of Bernoulli &amp; Poisson distribution (two sources of zeros)</td>
-<td style="text-align: left;">zero-inflated</td>
-<td style="text-align: left;"><code>zeroinfl()</code></td>
-<td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/zip/">UCLA</a></td>
-<td style="text-align: left;"><code>brm(family = zero_inflated_poisson())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmmTMB(ziformula, family=poisson)</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Count data, with very many zeros (inflation) and overdispersion</td>
-<td style="text-align: left;">Number of usage, counts of events (with higher variance than mean of response)</td>
-<td style="text-align: left;">zero-inflated negative binomial</td>
-<td style="text-align: left;"><code>zeroinfl(dist="negbin")</code></td>
-<td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/zinb/">UCLA</a></td>
-<td style="text-align: left;"><code>brm(family = zero_inflated_negbinomial())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmmTMB(ziformula, family=nbinom)</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Count data, zero-truncated</td>
-<td style="text-align: left;">see count data, but only for positive counts (hurdle component models zero-counts)</td>
-<td style="text-align: left;">hurdle (Poisson)</td>
-<td style="text-align: left;"><code>hurdle()</code></td>
-<td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/zero-truncated-poisson/">UCLA</a></td>
-<td style="text-align: left;"><code>brm(family = hurdle_poisson())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmmTMB(family=truncated_poisson)</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Count data, zero-truncated and overdispersion</td>
-<td style="text-align: left;">see “Count data, zero-truncated”, but with higher variance than mean of response</td>
-<td style="text-align: left;">hurdle (neg. binomial)</td>
-<td style="text-align: left;"><code>vglm(family=posnegbinomial)</code></td>
-<td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/zero-truncated-negative-binomial/">UCLA</a></td>
-<td style="text-align: left;"><code>brm(family = hurdle_negbinomial())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmmTMB(family=truncated_nbinom)</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Proportion / Ratio (without zero and one)</td>
-<td style="text-align: left;">Percentages, proportion of <em>continuous</em> data</td>
-<td style="text-align: left;">Beta <em>(see note below)</em></td>
-<td style="text-align: left;"><code>betareg()</code></td>
-<td style="text-align: left;"><a href="https://www.rdatagen.net/post/binary-beta-beta-binomial/">ouR data generation</a></td>
-<td style="text-align: left;"><code>brm(family = Beta())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>glmmTMB(family=beta_family)</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Proportion / Ratio (including zero and one)</td>
-<td style="text-align: left;">Percentages, proportions of <em>continuous</em> data</td>
-<td style="text-align: left;">Beta-Binomial, zero-inflated Beta, ordered Beta <em>(see note below)</em></td>
-<td style="text-align: left;">- <code>BBreg()</code><br />
-- <code>betabin()</code><br />
-- <code>vglm(family=betabinomial)</code><br />
-- <code>ordbetareg()</code></td>
-<td style="text-align: left;"><a href="https://www.rdatagen.net/post/binary-beta-beta-binomial/">ouR data generation</a></td>
-<td style="text-align: left;"><code>brm(family = zero_one_inflated_beta())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>glmmTMB(ziformula, family=beta_family)</code><br />
-- <code>glmmTMB(ziformula, family= betabinomial)</code><br />
-- <code>glmmTMB(ziformula, family= ordbeta)</code><br />
-- <code>ordbetareg()</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ordinal</td>
-<td style="text-align: left;">Likert scale, worse/ok/better</td>
-<td style="text-align: left;">ordinal, proportional odds, cumulative</td>
-<td style="text-align: left;">- <code>polr()</code><br />
-- <code>clm()</code><br />
-- <code>bracl()</code></td>
-<td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/ordinal-logistic-regression/">UCLA</a></td>
-<td style="text-align: left;"><code>brm(family = cumulative())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>clmm()</code><br />
-- <code>mixor()</code><br />
-- <code>MCMCglmm(family = "ordinal")</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Multinomial</td>
-<td style="text-align: left;">No natural order of categories, like red/green/blue</td>
-<td style="text-align: left;">multinomial</td>
-<td style="text-align: left;">- <code>multinom()</code><br />
-- <code>brmultinom()</code></td>
-<td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/multinomial-logistic-regression/">UCLA</a></td>
-<td style="text-align: left;"><code>brm(family = multinomial())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>MCMCglmm(family = "multinomial")</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Continuous, right-skewed</td>
-<td style="text-align: left;">Financial data, reaction times</td>
-<td style="text-align: left;">Gamma</td>
-<td style="text-align: left;"><code>glm(family=Gamma)</code></td>
-<td style="text-align: left;"><a href="https://seananderson.ca/2014/04/08/gamma-glms/">Sean Anderson</a></td>
-<td style="text-align: left;"><code>brm(family = Gamma())</code>, but see also <a href="https://lindeloev.github.io/shiny-rt/">Reaction time distributions in <code>brms</code></a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>glmer(*)</code><br />
-- <code>glmmTMB(*)</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">(Semi-)Continuous, (right) skewed, probably with spike at zero (zero-inlfated)</td>
-<td style="text-align: left;">Financial data, probably exponential dispersion of variance</td>
-<td style="text-align: left;">Tweedie</td>
-<td style="text-align: left;">- <code>glm(family=tweedie)</code><br />
-- <code>cpglm()</code></td>
-<td style="text-align: left;"><a href="https://blog.revolutionanalytics.com/2014/10/a-note-on-tweedie.html">Revolutions</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>cpglmm()</code><br />
-- <code>glmmTMB(*)</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">(Semi-)Continuous, (right) skewed, probably with spike at zero (zero-inlfated)</td>
-<td style="text-align: left;">Normal distribution, but negative values are censored and stacked on zero</td>
-<td style="text-align: left;">Tobit</td>
-<td style="text-align: left;">- <code>tobit()</code><br />
-- <code>censReg()</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>brm(y &amp;#124; cens(), family = gaussian())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>semLme()</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Continuous, but truncated or outliers</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">truncated</td>
-<td style="text-align: left;">- <code>censReg()</code><br />
-- <code>tobit()</code><br />
-- <code>vglm(family=tobit)</code></td>
-<td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/tobit-models/">UCLA-1</a>, <a href="https://stats.idre.ucla.edu/r/dae/truncated-regression/">UCLA-2</a></td>
-<td style="text-align: left;"><code>brm(y &amp;#124; trunc(), family = gaussian())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Continuous, but exponential growth</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">log-transformed, non-linear</td>
-<td style="text-align: left;">- <code>glm(family=Gaussian("log")</code><br />
-- <code>nls()</code></td>
-<td style="text-align: left;"><a href="https://www.statforbiology.com/nonlinearregression/usefulequations">Some useful equations</a>, <a href="https://stats.stackexchange.com/a/61806/54740">linear vs. non-linear regression</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">- <code>glmmTMB(*)</code><br />
-- <code>nlmer()</code><br />
-- <code>nlme()</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Proportion / Ratio with more than 2 categories</td>
-<td style="text-align: left;">Biomass partitioning in plants (ratio of leaf, stem and root mass)</td>
-<td style="text-align: left;">Dirichlet</td>
-<td style="text-align: left;"><code>DirichReg()</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>brm(family = dirichlet())</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Time-to-Event</td>
-<td style="text-align: left;">Survival-analysis, time until event/death occurs</td>
-<td style="text-align: left;">Cox (proportional hazards)</td>
-<td style="text-align: left;"><code>coxph</code></td>
-<td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/mixed-effects-cox-regression/">UCLA</a></td>
-<td style="text-align: left;"><code>brm(family = cox())</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>coxme()</code></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+| Nature of Response                                                             | Example                                                                                                        | Type of Regression                                                 | R package or function                                                                                                                       | Example Webpage                                                                                                                                                                | Bayesian with [`brms`](https://paul-buerkner.github.io/brms/reference/brmsfamily.html)                               |
+| :----------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------- |
+| Continuous                                                                     | Quality of Life, linear scales                                                                                 | linear                                                             | `lm()`                                                                                                                                      |                                                                                                                                                                                | `brm(family = gaussian())`                                                                                           |
+|                                                                                |                                                                                                                |                                                                    | `lmer()`; `glmmTMB()`                                                                                                                       |                                                                                                                                                                                |                                                                                                                      |
+| Binary                                                                         | Success yes/no                                                                                                 | binary logistic                                                    | `glm(family=binomial)`                                                                                                                      | [UCLA](https://stats.idre.ucla.edu/r/dae/logit-regression/)                                                                                                                    | `brm(family = binomial())`                                                                                           |
+|                                                                                |                                                                                                                |                                                                    | `glmer(*)`; `glmmTMB(*)`                                                                                                                    |                                                                                                                                                                                |                                                                                                                      |
+| Binary, weighted                                                               | Success yes/no, with weights                                                                                   | quasi-binary logistic                                              | `glm(family=quasibinomial)`                                                                                                                 |                                                                                                                                                                                |                                                                                                                      |
+|                                                                                |                                                                                                                |                                                                    | `glmmPQL(family="quasibinomial")`                                                                                                           |                                                                                                                                                                                |                                                                                                                      |
+| Trials (or proportions of *counts*)                                            | 20 successes out of 30 trials                                                                                  | logistic                                                           | `glm(cbind(successes, failures), family=binomial)`                                                                                          | [Hadley’s notes](http://had.co.nz/notes/modelling/logistic-regression.html)                                                                                                    | `brm(successes &#124; trials(total), family = binomial())`                                                           |
+|                                                                                |                                                                                                                |                                                                    | `glmer(*)`; `glmmTMB(*)`                                                                                                                    |                                                                                                                                                                                |                                                                                                                      |
+| Count data                                                                     | Number of usage, counts of events                                                                              | Poisson                                                            | `glm(family=poisson)`                                                                                                                       | [UCLA](https://stats.idre.ucla.edu/r/dae/poisson-regression/)                                                                                                                  | `brm(family = poisson())`                                                                                            |
+|                                                                                |                                                                                                                |                                                                    | `glmer(*)`; `glmmTMB(*)`                                                                                                                    |                                                                                                                                                                                |                                                                                                                      |
+| Count data, with excess zeros or overdispersion                                | Number of usage, counts of events (with higher variance than mean of response)                                 | negative binomial                                                  | \- `glm\ - nb()`                                                                                                                            | [UCLA](https://stats.idre.ucla.edu/r/dae/negative-binomial-regression/)                                                                                                        | `brm(family = negbinomial())`                                                                                        |
+|                                                                                |                                                                                                                |                                                                    | \- `glmer\ - nb()`; `glmmTMB(family=nbinom)`                                                                                                |                                                                                                                                                                                |                                                                                                                      |
+| Count data with very many zeros (inflation)                                    | see count data, but response is modelled as mixture of Bernoulli & Poisson distribution (two sources of zeros) | zero-inflated                                                      | `zeroinfl()`                                                                                                                                | [UCLA](https://stats.idre.ucla.edu/r/dae/zip/)                                                                                                                                 | `brm(family = zero_inflated_poisson())`                                                                              |
+|                                                                                |                                                                                                                |                                                                    | `glmmTMB(ziformula, family=poisson)`                                                                                                        |                                                                                                                                                                                |                                                                                                                      |
+| Count data, with very many zeros (inflation) and overdispersion                | Number of usage, counts of events (with higher variance than mean of response)                                 | zero-inflated negative binomial                                    | `zeroinfl(dist="negbin")`                                                                                                                   | [UCLA](https://stats.idre.ucla.edu/r/dae/zinb/)                                                                                                                                | `brm(family = zero_inflated_negbinomial())`                                                                          |
+|                                                                                |                                                                                                                |                                                                    | `glmmTMB(ziformula, family=nbinom)`                                                                                                         |                                                                                                                                                                                |                                                                                                                      |
+| Count data, zero-truncated                                                     | see count data, but only for positive counts (hurdle component models zero-counts)                             | hurdle (Poisson)                                                   | `hurdle()`                                                                                                                                  | [UCLA](https://stats.idre.ucla.edu/r/dae/zero-truncated-poisson/)                                                                                                              | `brm(family = hurdle_poisson())`                                                                                     |
+|                                                                                |                                                                                                                |                                                                    | `glmmTMB(family=truncated_poisson)`                                                                                                         |                                                                                                                                                                                |                                                                                                                      |
+| Count data, zero-truncated and overdispersion                                  | see “Count data, zero-truncated”, but with higher variance than mean of response                               | hurdle (neg. binomial)                                             | `vglm(family=posnegbinomial)`                                                                                                               | [UCLA](https://stats.idre.ucla.edu/r/dae/zero-truncated-negative-binomial/)                                                                                                    | `brm(family = hurdle_negbinomial())`                                                                                 |
+|                                                                                |                                                                                                                |                                                                    | `glmmTMB(family=truncated_nbinom)`                                                                                                          |                                                                                                                                                                                |                                                                                                                      |
+| Proportion / Ratio (without zero and one)                                      | Percentages, proportion of *continuous* data                                                                   | Beta *(see note below)*                                            | `betareg()`                                                                                                                                 | [ouR data generation](https://www.rdatagen.net/post/binary-beta-beta-binomial/)                                                                                                | `brm(family = Beta())`                                                                                               |
+|                                                                                |                                                                                                                |                                                                    | `glmmTMB(family=beta_family)`                                                                                                               |                                                                                                                                                                                |                                                                                                                      |
+| Proportion / Ratio (including zero and one)                                    | Percentages, proportions of *continuous* data                                                                  | Beta-Binomial, zero-inflated Beta, ordered Beta *(see note below)* | `BBreg()`; `betabin()`; `vglm(family=betabinomial)`; `ordbetareg()`                                                                         | [ouR data generation](https://www.rdatagen.net/post/binary-beta-beta-binomial/)                                                                                                | `brm(family = zero_one_inflated_beta())`                                                                             |
+|                                                                                |                                                                                                                |                                                                    | `glmmTMB(ziformula, family=beta_family)`; `glmmTMB(ziformula, family= betabinomial)`; `glmmTMB(ziformula, family= ordbeta)`; `ordbetareg()` |                                                                                                                                                                                |                                                                                                                      |
+| Ordinal                                                                        | Likert scale, worse/ok/better                                                                                  | ordinal, proportional odds, cumulative                             | `polr()`; `clm()`; `bracl()`                                                                                                                | [UCLA](https://stats.idre.ucla.edu/r/dae/ordinal-logistic-regression/)                                                                                                         | `brm(family = cumulative())`                                                                                         |
+|                                                                                |                                                                                                                |                                                                    | `clmm()`; `mixor()`; `MCMCglmm(family = "ordinal")`                                                                                         |                                                                                                                                                                                |                                                                                                                      |
+| Multinomial                                                                    | No natural order of categories, like red/green/blue                                                            | multinomial                                                        | `multinom()`; `brmultinom()`                                                                                                                | [UCLA](https://stats.idre.ucla.edu/r/dae/multinomial-logistic-regression/)                                                                                                     | `brm(family = multinomial())`                                                                                        |
+|                                                                                |                                                                                                                |                                                                    | `MCMCglmm(family = "multinomial")`                                                                                                          |                                                                                                                                                                                |                                                                                                                      |
+| Continuous, right-skewed                                                       | Financial data, reaction times                                                                                 | Gamma                                                              | `glm(family=Gamma)`                                                                                                                         | [Sean Anderson](https://seananderson.ca/2014/04/08/gamma-glms/)                                                                                                                | `brm(family = Gamma())`, but see also [Reaction time distributions in `brms`](https://lindeloev.github.io/shiny-rt/) |
+|                                                                                |                                                                                                                |                                                                    | `glmer(*)`; `glmmTMB(*)`                                                                                                                    |                                                                                                                                                                                |                                                                                                                      |
+| (Semi-)Continuous, (right) skewed, probably with spike at zero (zero-inlfated) | Financial data, probably exponential dispersion of variance                                                    | Tweedie                                                            | `glm(family=tweedie)`; `cpglm()`                                                                                                            | [Revolutions](https://blog.revolutionanalytics.com/2014/10/a-note-on-tweedie.html)                                                                                             |                                                                                                                      |
+|                                                                                |                                                                                                                |                                                                    | `cpglmm()`; `glmmTMB(*)`                                                                                                                    |                                                                                                                                                                                |                                                                                                                      |
+| (Semi-)Continuous, (right) skewed, probably with spike at zero (zero-inlfated) | Normal distribution, but negative values are censored and stacked on zero                                      | Tobit                                                              | `tobit()`; `censReg()`                                                                                                                      |                                                                                                                                                                                | `brm(y &#124; cens(), family = gaussian())`                                                                          |
+|                                                                                |                                                                                                                |                                                                    | `semLme()`                                                                                                                                  |                                                                                                                                                                                |                                                                                                                      |
+| Continuous, but truncated or outliers                                          |                                                                                                                | truncated                                                          | `censReg()`; `tobit()`; `vglm(family=tobit)`                                                                                                | [UCLA-1](https://stats.idre.ucla.edu/r/dae/tobit-models/), [UCLA-2](https://stats.idre.ucla.edu/r/dae/truncated-regression/)                                                   | `brm(y &#124; trunc(), family = gaussian())`                                                                         |
+| Continuous, but exponential growth                                             |                                                                                                                | log-transformed, non-linear                                        | `glm(family=Gaussian("log")`; `nls()`                                                                                                       | [Some useful equations](https://www.statforbiology.com/nonlinearregression/usefulequations), [linear vs. non-linear regression](https://stats.stackexchange.com/a/61806/54740) |                                                                                                                      |
+|                                                                                |                                                                                                                |                                                                    | `glmmTMB(*)`; `nlmer()`; `nlme()`                                                                                                           |                                                                                                                                                                                |                                                                                                                      |
+| Proportion / Ratio with more than 2 categories                                 | Biomass partitioning in plants (ratio of leaf, stem and root mass)                                             | Dirichlet                                                          | `DirichReg()`                                                                                                                               |                                                                                                                                                                                | `brm(family = dirichlet())`                                                                                          |
+| Time-to-Event                                                                  | Survival-analysis, time until event/death occurs                                                               | Cox (proportional hazards)                                         | `coxph`                                                                                                                                     | [UCLA](https://stats.idre.ucla.edu/r/dae/mixed-effects-cox-regression/)                                                                                                        | `brm(family = cox())`                                                                                                |
+|                                                                                |                                                                                                                |                                                                    | `coxme()`                                                                                                                                   |                                                                                                                                                                                |                                                                                                                      |
 
   - `*` indicates that for the mixed models functions the same
     response-type and family should be used as for their `glm`
