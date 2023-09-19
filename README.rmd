@@ -29,6 +29,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 docx <- read_docx("Regressionspakete.docx")
 tab <- docx_extract_tbl(docx)
+
+for (i in seq_len(nrow(tab))) {
+  x <- tab$R.function...R.function.for.mixed.models[i]
+  if (grepl(".", x, fixed = TRUE)) {
+    x <- unlist(strsplit(x, ".", fixed = TRUE))
+    x <- paste("-", x)
+    x <- paste0(x, collapse = "\\\n")
+    tab$R.function...R.function.for.mixed.models[i] <- x
+  }
+}
+
 colnames(tab) <- c("Nature of Response", "Example", "Type of Regression", "R package or function", "Example Webpage", "Bayesian with [`brms`](https://paul-buerkner.github.io/brms/reference/brmsfamily.html)")
 ```
 

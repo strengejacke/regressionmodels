@@ -208,7 +208,8 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;">Beta-Binomial, zero-inflated Beta, ordered Beta <em>(see note below)</em></td>
 <td style="text-align: left;">- <code>BBreg()</code><br />
 - <code>betabin()</code><br />
-- <code>vglm(family=betabinomial)</code>, <code>ordbetareg()</code></td>
+- <code>vglm(family=betabinomial)</code><br />
+- <code>ordbetareg()</code></td>
 <td style="text-align: left;"><a href="https://www.rdatagen.net/post/binary-beta-beta-binomial/">ouR data generation</a></td>
 <td style="text-align: left;"><code>brm(family = zero_one_inflated_beta())</code></td>
 </tr>
