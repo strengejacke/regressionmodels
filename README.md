@@ -19,12 +19,12 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 
 <table>
 <colgroup>
-<col style="width: 14%" />
-<col style="width: 20%" />
-<col style="width: 12%" />
-<col style="width: 27%" />
-<col style="width: 10%" />
-<col style="width: 14%" />
+<col style="width: 11%" />
+<col style="width: 15%" />
+<col style="width: 9%" />
+<col style="width: 21%" />
+<col style="width: 24%" />
+<col style="width: 16%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -93,7 +93,7 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;">logistic</td>
 <td style="text-align: left;"><code>glm(cbind(successes, failures), family=binomial)</code></td>
 <td style="text-align: left;"><a href="http://had.co.nz/notes/modelling/logistic-regression.html">Hadley’s notes</a></td>
-<td style="text-align: left;"><code>brm(successes &amp;#124; trials(total), family = binomial())</code></td>
+<td style="text-align: left;"><code>brm(successes | trials(total), family = binomial())</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>

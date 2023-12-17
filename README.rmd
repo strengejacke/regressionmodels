@@ -52,7 +52,8 @@ This overview raises no claims towards completeness of available modelling packa
 ## Modelling Packages
 
 ```{r echo=FALSE}
-kable(tab)
+# kable(tab)
+insight::export_table(tab, format = "md", align = "left")
 ```
 
 - `*` indicates that for the mixed models functions the same response-type and family should be used as for their `glm` counterpart.
