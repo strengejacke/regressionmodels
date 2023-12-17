@@ -319,7 +319,7 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 <td style="text-align: left;">- <code>tobit()</code><br />
 - <code>censReg()</code></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><code>brm(y &amp;#124; cens(), family = gaussian())</code></td>
+<td style="text-align: left;"><code>brm(y | cens(), family = gaussian())</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
@@ -337,7 +337,7 @@ issue](https://github.com/strengejacke/regressionmodels/issues)).
 - <code>tobit()</code><br />
 - <code>vglm(family=tobit)</code></td>
 <td style="text-align: left;"><a href="https://stats.idre.ucla.edu/r/dae/tobit-models/">UCLA-1</a>, <a href="https://stats.idre.ucla.edu/r/dae/truncated-regression/">UCLA-2</a></td>
-<td style="text-align: left;"><code>brm(y &amp;#124; trunc(), family = gaussian())</code></td>
+<td style="text-align: left;"><code>brm(y | trunc(), family = gaussian())</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Continuous, but exponential growth</td>
